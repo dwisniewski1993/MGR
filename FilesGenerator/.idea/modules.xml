@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GenerateMGRPseudoDatasets.iml" filepath="$PROJECT_DIR$/.idea/GenerateMGRPseudoDatasets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/FilesGenerator.iml" filepath="$PROJECT_DIR$/.idea/FilesGenerator.iml" />
     </modules>
   </component>
 </project>
