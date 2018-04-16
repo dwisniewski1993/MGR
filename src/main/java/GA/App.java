@@ -12,7 +12,7 @@ import java.util.Set;
 
 /**
  * MGR project Genetic Algorithm
- *
+ * MADE BY Dominik Wiśniewski
  */
 public class App 
 {
@@ -67,5 +67,11 @@ public class App
 
         System.out.println(stats); // GA stats
         System.out.println(best); // Best Phenotype
+
+        System.out.println("Make GA");
+        GeneticAlgorithm genAlg = new GeneticAlgorithm(50, 15, 0.7, 0.2, 100, idList);
+        System.out.println(genAlg.getBest());
+        System.out.println(genAlg.getBest());
+        System.out.println(genAlg.getStats());
     }
 }
