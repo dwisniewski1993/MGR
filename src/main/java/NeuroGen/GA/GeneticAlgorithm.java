@@ -27,7 +27,8 @@ public class GeneticAlgorithm {
     private Engine<EnumGene<Integer>, Integer> engine;
     private EvolutionStatistics<Integer, ?> stats;
     private Phenotype<EnumGene<Integer>, Integer> best;
-    private SemanticHandler ontology;
+    private static SemanticHandler ontology;
+    private static String pathfile;
 
     public GeneticAlgorithm(int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList, String filename){
         populationSize = popSize;
@@ -37,6 +38,7 @@ public class GeneticAlgorithm {
         numberOfGenerations = numOfGen;
         this.idList = idList;
         allele = ISeq.of(idList);
+        ontology = new SemanticHandler(filename);
         gtf = Genotype.of(PermutationChromosome.of(allele));
         engine = Engine.builder(GeneticAlgorithm::FF, gtf)
                 .populationSize(populationSize)
@@ -47,7 +49,7 @@ public class GeneticAlgorithm {
                 .build();
         stats = EvolutionStatistics.ofNumber();
         best = engine.stream().limit(numberOfGenerations).peek(stats).collect(toBestPhenotype());
-        ontology = new SemanticHandler(filename);
+        pathfile = filename;
     }
 
     public Phenotype<EnumGene<Integer>, Integer> getBest(){
@@ -60,13 +62,19 @@ public class GeneticAlgorithm {
 
     //Fitness Function
     public static int FF(final Genotype<EnumGene<Integer>> gt){
-        Random random = new Random();
-        int maximum = 15;
-        int minimum = 1;
-        int n = maximum - minimum + 1;
-        int i = random.nextInt() % n;
-        int randomnum = minimum + i;
-        return randomnum;
+        //Fitness=suma(waga * odległość od(i do i-1) + (1-waga) * poziom trudności
+
+        int fitInt;
+        double fitness = 0;
+        double wage = 0.6;
+
+        for (int i = 1; i < gt.getChromosome().length(); i++){
+            fitness = fitness + ((wage*ontology.getDistanceToElemnt(i, i-1))
+                    + ((1-wage)*ontology.getUnitDifLvl(i)));
+        }
+
+        fitInt = (int)fitness;
+        return fitInt;
     }
 
 }

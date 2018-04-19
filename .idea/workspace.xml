@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58990d26-fa40-4700-9ac3-8a035a746508" name="Default" comment="Clean Up">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/NeuroGen/App.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/NeuroGen/GA/SemanticHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/NeuroGen/GA/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="58990d26-fa40-4700-9ac3-8a035a746508" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FilesGenerator/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/FilesGenerator/App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NeuroGen.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GA/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GA/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GA/SemanticHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/SemanticHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GA/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NeuroGen/GA/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GA/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GA/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NeuroGen/GA/GeneticAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GA/SemanticHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GA/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NeuroGen/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NeuroGen/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NeuroGen/GA/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NeuroGen/GA/GeneticAlgorithm.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,20 +19,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+            <state relative-caret-position="323">
+              <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+            <state relative-caret-position="187">
+              <caret line="70" column="62" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
+              <folding>
+                <element signature="e#2122#2123#0" expanded="true" />
+                <element signature="e#2149#2150#0" expanded="true" />
+                <element signature="e#2206#2207#0" expanded="true" />
+                <element signature="e#2234#2235#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,8 +46,8 @@
       <file leaf-file-name="SemanticHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/SemanticHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="95" column="13" lean-forward="true" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="75" column="64" selection-start-line="75" selection-start-column="64" selection-end-line="75" selection-end-column="64" />
               <folding>
                 <element signature="e#1193#1194#0" expanded="true" />
                 <element signature="e#1254#1255#0" expanded="true" />
@@ -268,6 +259,21 @@
       <workItem from="1523813450014" duration="9598000" />
       <workItem from="1523862235571" duration="6146000" />
     </task>
+    <task id="LOCAL-00001" summary="Clean Up">
+      <created>1524160001474</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524160001474</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add semantic to GA">
+      <created>1524162505378</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1524162505378</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -285,7 +291,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35480225" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35480225" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -314,16 +320,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Clean Up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean Up" />
+    <MESSAGE value="Add semantic to GA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add semantic to GA" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/SemanticHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="95" column="13" lean-forward="true" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+        <state relative-caret-position="285">
+          <caret line="75" column="64" selection-start-line="75" selection-start-column="64" selection-end-line="75" selection-end-column="64" />
           <folding>
             <element signature="e#1193#1194#0" expanded="true" />
             <element signature="e#1254#1255#0" expanded="true" />
@@ -333,15 +347,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="187">
+          <caret line="70" column="62" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
+          <folding>
+            <element signature="e#2122#2123#0" expanded="true" />
+            <element signature="e#2149#2150#0" expanded="true" />
+            <element signature="e#2206#2207#0" expanded="true" />
+            <element signature="e#2234#2235#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

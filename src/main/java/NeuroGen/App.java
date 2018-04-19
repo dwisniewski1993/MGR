@@ -26,7 +26,7 @@ public class App
 
         System.out.println("Make NeuroGen:GA");
         GeneticAlgorithm genAlg = new GeneticAlgorithm(50, 15, 0.7, 0.2, 100, idList, semanticFilePAth);
-        System.out.println(genAlg.getBest());
         System.out.println(genAlg.getStats());
+        System.out.println(genAlg.getBest());
     }
 }
