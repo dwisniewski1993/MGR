@@ -32,12 +32,12 @@ def generate_semantic():
     file.write(r'<?xml version="1.0" encoding="UTF-8"?>'+'\n')
     file.write(r'<UNITS_LIST>'+'\n')
 
-    for each in range(1, 11):
+    for each in range(0, 10):
         currect = each
         file.write('\t'+'<UNIT id = "'+str(currect)+'">'+'\n')
         file.write('\t'+'\t'+r'<DIFFICULTY_LEVEL>'+str(random.randint(1, 5))+r'</DIFFICULTY_LEVEL>'+'\n')
         file.write('\t'+'\t'+r'<DISTANCE>'+'\n')
-        for each in range(1, 11):
+        for each in range(0, 10):
             if each != currect:
                 file.write('\t'+'\t'+'\t'+r'<FROM id = "'+str(each)+'">'+str(random.randint(1, 5))+r'</FROM>'+'\n')
         file.write('\t'+'\t'+r'</DISTANCE>'+'\n')

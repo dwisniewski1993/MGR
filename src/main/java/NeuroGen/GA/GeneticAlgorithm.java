@@ -68,9 +68,9 @@ public class GeneticAlgorithm {
         double fitness = 0;
         double wage = 0.6;
 
-        for (int i = 1; i < gt.getChromosome().length(); i++){
-            fitness = fitness + ((wage*ontology.getDistanceToElemnt(i, i-1))
-                    + ((1-wage)*ontology.getUnitDifLvl(i)));
+        for (int i = 0; i < gt.getChromosome().length(); i++){
+            fitness = fitness + ((wage*ontology.getDistanceToElemnt(i+1, i))
+                    + ((1-wage)*ontology.getUnitDifLvl(i+1)));
         }
 
         fitInt = (int)fitness;

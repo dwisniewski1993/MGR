@@ -49,8 +49,10 @@ public class SemanticHandler {
     }
 
     public int getNumberOfUnits(){
+        int len = 0;
         NodeList unitList = doc.getElementsByTagName("UNIT");
-        return unitList.getLength();
+        len = unitList.getLength();
+        return len;
     }
 
     public int getUnitDifLvl(int elementID){
@@ -71,7 +73,7 @@ public class SemanticHandler {
             Element distEl = (Element) eElement.getElementsByTagName("DISTANCE").item(0);
             int len = getNumberOfUnits()-1;
             int flag = 0;
-            for (int j=0; j<len; j++){
+            for (int j=0; j<=len; j++){
                 Element id = (Element) distEl.getElementsByTagName("FROM").item(j);
                 if (searchDistElemId == Integer.parseInt(id.getAttribute("id"))){
                     flag = j;
