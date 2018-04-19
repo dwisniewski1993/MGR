@@ -1,4 +1,4 @@
-package GA;
+package NeuroGen.GA;
 
 import static org.junit.Assert.assertTrue;
 

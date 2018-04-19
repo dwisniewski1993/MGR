@@ -1,4 +1,4 @@
-package GA;
+package NeuroGen.GA;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -14,34 +14,33 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * MGR project Semantic Handler for GA part of NeuroGen Engine
+ * MADE BY Dominik Wiśniewski
+ */
 public class SemanticHandler {
-    public File inputfile = new File("semantic.xml");
-    public DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+    public String pathfile; //"semantic.xml"
+    public File inputfile;
+    public DocumentBuilderFactory dbFactory;
     public DocumentBuilder dBuilder;
-
-    {
-        try{
-            dBuilder = dbFactory.newDocumentBuilder();
-        }
-        catch (ParserConfigurationException e){
-            e.printStackTrace();
-        }
-    }
     public Document doc;
 
-    {
-        try{
+    public SemanticHandler(String filepath){
+        this.pathfile = filepath;
+        this.inputfile = new File(filepath);
+        this.dbFactory = DocumentBuilderFactory.newInstance();
+        try {
+            this.dBuilder = dbFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+        try {
             doc = dBuilder.parse(inputfile);
-        }
-        catch (SAXException e){
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    public void init(){
         doc.getDocumentElement().normalize();
     }
 
@@ -100,3 +99,18 @@ public class SemanticHandler {
         return ids;
     }
 }
+
+/*
+String semanticFilePAth = "semantic.xml";
+        System.out.println("**************************************");
+        System.out.println("Semantic Handl");
+        SemanticHandler ontology = new SemanticHandler(semanticFilePAth);
+        System.out.println("Root Element: "+ontology.getRootElement());
+        System.out.println("Number Of Units: "+ontology.getNumberOfUnits());
+        int number = 7; // main Unit ID
+        int numer2 = 9; // pursuit Unit ID
+        System.out.println("Unit ID: "+number+"Difficulty level: "+ontology.getUnitDifLvl(number));
+        System.out.println("Distance from: "+number+" to "+numer2+" = "+ontology.getDistanceToElemnt(number, numer2));
+        Set<Integer> idList = ontology.getIDArrays();
+        for (int x: idList){System.out.println(x);}
+ */

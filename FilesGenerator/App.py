@@ -55,7 +55,7 @@ def main():
     generate_dataset(x_size=SIZE_X, y_size=SIZE_Y, set_size=SIZE_SET)
     print("DONE!")
 
-    print("Generate GA dataset...")
+    print("Generate NeuroGen.GA dataset...")
     generate_semantic()
     print("DONE!")
 
