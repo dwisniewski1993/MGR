@@ -21,11 +21,11 @@ public class App
     public static void main( String[] args )
     {
         String semanticFilePAth = "semantic.xml";
-        SemanticHandler ontology = new SemanticHandler(semanticFilePAth);
-        Set<Integer> idList = ontology.getIDArrays();
+        SemanticHandler ontologyT = new SemanticHandler(semanticFilePAth);//Temporary line
+        Set<Integer> idList = ontologyT.getIDArrays();
 
         System.out.println("Make NeuroGen:GA");
-        GeneticAlgorithm genAlg = new GeneticAlgorithm(50, 15, 0.7, 0.2, 100, idList);
+        GeneticAlgorithm genAlg = new GeneticAlgorithm(50, 15, 0.7, 0.2, 100, idList, semanticFilePAth);
         System.out.println(genAlg.getBest());
         System.out.println(genAlg.getStats());
     }

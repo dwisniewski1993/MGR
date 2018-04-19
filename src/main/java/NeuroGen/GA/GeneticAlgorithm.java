@@ -29,7 +29,7 @@ public class GeneticAlgorithm {
     private Phenotype<EnumGene<Integer>, Integer> best;
     private SemanticHandler ontology;
 
-    public GeneticAlgorithm(int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList){
+    public GeneticAlgorithm(int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList, String filename){
         populationSize = popSize;
         maxPhenotypeAge = maxPhenAge;
         crossoverProp = crossProp;
@@ -47,6 +47,7 @@ public class GeneticAlgorithm {
                 .build();
         stats = EvolutionStatistics.ofNumber();
         best = engine.stream().limit(numberOfGenerations).peek(stats).collect(toBestPhenotype());
+        ontology = new SemanticHandler(filename);
     }
 
     public Phenotype<EnumGene<Integer>, Integer> getBest(){
