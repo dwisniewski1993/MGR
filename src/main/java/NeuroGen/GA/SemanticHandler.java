@@ -24,6 +24,7 @@ public class SemanticHandler {
     public DocumentBuilderFactory dbFactory;
     public DocumentBuilder dBuilder;
     public Document doc;
+    public int unitLenght;
 
     public SemanticHandler(String filepath){
         this.pathfile = filepath;
@@ -42,6 +43,8 @@ public class SemanticHandler {
             e.printStackTrace();
         }
         doc.getDocumentElement().normalize();
+        NodeList unitList = doc.getElementsByTagName("UNIT");
+        this.unitLenght = unitList.getLength();
     }
 
     public String getRootElement(){
@@ -53,6 +56,10 @@ public class SemanticHandler {
         NodeList unitList = doc.getElementsByTagName("UNIT");
         len = unitList.getLength();
         return len;
+    }
+
+    public int getUnitLenght(){
+        return this.unitLenght;
     }
 
     public int getUnitDifLvl(int elementID){
@@ -67,11 +74,13 @@ public class SemanticHandler {
 
     public int getDistanceToElemnt(int elementID, int searchDistElemId){
         NodeList unitList = doc.getElementsByTagName("UNIT");
-        Node nUnit = unitList.item(elementID-1);
+        Node nUnit = unitList.item(elementID);
+        System.out.println("Node type: "+nUnit.getNodeType()+", ElementNode" + Node.ELEMENT_NODE);
+        System.out.println("Elem ID: "+ elementID+", Search ID: "+searchDistElemId);
         if (nUnit.getNodeType()==Node.ELEMENT_NODE){
             Element eElement = (Element) nUnit;
             Element distEl = (Element) eElement.getElementsByTagName("DISTANCE").item(0);
-            int len = getNumberOfUnits()-1;
+            int len = getUnitLenght();
             int flag = 0;
             for (int j=0; j<len; j++){
                 Element id = (Element) distEl.getElementsByTagName("FROM").item(j);

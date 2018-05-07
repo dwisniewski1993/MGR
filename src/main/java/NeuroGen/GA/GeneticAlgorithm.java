@@ -31,6 +31,8 @@ public class GeneticAlgorithm {
     private static String pathfile;
 
     public GeneticAlgorithm(int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList, String filename){
+        pathfile = filename;
+        ontology = new SemanticHandler(filename);
         populationSize = popSize;
         maxPhenotypeAge = maxPhenAge;
         crossoverProp = crossProp;
@@ -38,7 +40,6 @@ public class GeneticAlgorithm {
         numberOfGenerations = numOfGen;
         this.idList = idList;
         allele = ISeq.of(idList);
-        ontology = new SemanticHandler(filename);
         gtf = Genotype.of(PermutationChromosome.of(allele));
         engine = Engine.builder(GeneticAlgorithm::FF, gtf)
                 .populationSize(populationSize)
@@ -49,7 +50,7 @@ public class GeneticAlgorithm {
                 .build();
         stats = EvolutionStatistics.ofNumber();
         best = engine.stream().limit(numberOfGenerations).peek(stats).collect(toBestPhenotype());
-        pathfile = filename;
+
     }
 
     public Phenotype<EnumGene<Integer>, Integer> getBest(){

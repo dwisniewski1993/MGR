@@ -9,21 +9,29 @@ Generate MGR dataset for neural network and Genetic Algoritm
 def generate_dataset(x_size, y_size, set_size):
     X = []
     Y = []
+    dataset = []
     for _ in range(set_size):
         x = [int(random.randint(0, 1)) for _ in range(x_size)]
         y = [int(random.randint(0, 1)) for _ in range(y_size)]
+        line = x + y
 
         X.append(x)
         Y.append(y)
+        dataset.append(line)
 
-    with open("X.csv", 'w', newline='') as myfile:
+    with open("X.csv", 'w') as myfile:
         for each in X:
             wr = csv.writer(myfile)
             wr.writerow(each)
-    with open("Y.csv", 'w', newline='') as myfile:
+    with open("Y.csv", 'w') as myfile:
         for each in Y:
             wr = csv.writer(myfile)
             wr.writerow(each)
+    with open("dataset.csv", 'w') as myfile:
+        for each in dataset:
+            wr = csv.writer(myfile)
+            wr.writerow(each)
+
 
 
 def generate_semantic():
