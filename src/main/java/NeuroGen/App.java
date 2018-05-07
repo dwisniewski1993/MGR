@@ -2,9 +2,12 @@ package NeuroGen;
 
 import NeuroGen.GA.GeneticAlgorithm;
 import NeuroGen.GA.SemanticHandler;
+import org.datavec.api.records.Record;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
+import org.datavec.api.util.ndarray.RecordConverter;
+import org.datavec.api.writable.Writable;
 import org.deeplearning4j.datasets.datavec.RecordReaderMultiDataSetIterator;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -21,11 +24,16 @@ import org.jenetics.engine.EvolutionStatistics;
 import static org.jenetics.engine.EvolutionResult.toBestPhenotype;
 import org.jenetics.util.Factory;
 import org.jenetics.util.ISeq;
+import org.nd4j.linalg.activations.Activation;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.iterator.MultiDataSetIterator;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -35,7 +43,8 @@ import java.util.Set;
  */
 public class App 
 {
-    public static void main( String[] args ) throws IOException, InterruptedException {
+
+    public static void main(String[] args ) throws IOException, InterruptedException {
         String semanticFilePAth = "semantic.xml";
         SemanticHandler ontologyT = new SemanticHandler(semanticFilePAth);//Temporary line
         Set<Integer> idList = ontologyT.getIDArrays();
@@ -62,6 +71,8 @@ public class App
         String fileDelimeter = ",";
         String csvPath = "dataset.csv";
 
+
+        //Record Reader for training dataset
         RecordReader rr = new CSVRecordReader(numLinesToSkip, fileDelimeter);
         rr.initialize(new FileSplit(new File(csvPath)));
 
@@ -71,6 +82,7 @@ public class App
                 .addOutput("myReader", 10, 19)
                 .build();
 
+        //Neural Network Architecture
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .seed(seed)
                 .iterations(1)
@@ -81,19 +93,20 @@ public class App
                 .list()
                 .layer(0, new DenseLayer.Builder()
                     .nIn(10)
-                    .nOut(10)
+                    .nOut(numHiddenNodes)
                     .weightInit(WeightInit.XAVIER)
-                    .activation("relu")
+                    .activation(Activation.SIGMOID)
                     .build())
                 .layer(1, new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
                     .weightInit(WeightInit.XAVIER)
-                        .activation("softmax")
+                        .activation(Activation.IDENTITY)
                         .weightInit(WeightInit.XAVIER)
                         .nIn(numHiddenNodes)
                         .nOut(10)
                         .build()
                 ).pretrain(false).backprop(true).build();
 
+        //Training Model
         MultiLayerNetwork model = new MultiLayerNetwork(conf);
         model.init();
         model.setListeners(new ScoreIterationListener(10));
@@ -101,6 +114,14 @@ public class App
         for (int i = 0; i< nEpochs; i++){
             model.fit(iterator);
         }
+
+        RecordReader sampleReader = new CSVRecordReader(numLinesToSkip, fileDelimeter);
+        sampleReader.initialize(new FileSplit(new File("samples.csv")));
+        List<Writable> record = sampleReader.next();
+        INDArray convert = RecordConverter.toArray(record);
+        int[] predicted = model.predict(convert);
+
+        System.out.println(predicted[0]);
 
 
         System.out.println("Make NeuroGen:GA");
