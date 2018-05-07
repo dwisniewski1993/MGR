@@ -93,7 +93,7 @@ public class App
                         .nOut(10)
                         .build()
                 ).pretrain(false).backprop(true).build();
-/*
+
         MultiLayerNetwork model = new MultiLayerNetwork(conf);
         model.init();
         model.setListeners(new ScoreIterationListener(10));
@@ -101,7 +101,7 @@ public class App
         for (int i = 0; i< nEpochs; i++){
             model.fit(iterator);
         }
-*/
+
 
         System.out.println("Make NeuroGen:GA");
         //GeneticAlgorithm genAlg = new GeneticAlgorithm(50, 15, 0.7, 0.2, 100, idList, semanticFilePAth);
