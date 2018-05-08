@@ -17,6 +17,7 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
+import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.DataSet;
@@ -111,6 +112,7 @@ public class App
         }
 
 
+        //Take data and predict score
         RecordReader sampleReader = new CSVRecordReader(numLinesToSkip, fileDelimeter);
         sampleReader.initialize(new FileSplit(new File("sample.csv")));
 
@@ -120,6 +122,18 @@ public class App
         System.out.println("Convert Array: "+convert);
         INDArray output = model.output(convert);
         System.out.println("Predicted INDArray: "+output);
+
+        //Save Trained Model
+        File locationToSave = new File("trained_model.zip");
+        boolean saveUpdater = false;
+        ModelSerializer.writeModel(model, locationToSave, saveUpdater);
+
+        //Load model
+        MultiLayerNetwork loadedModel = ModelSerializer.restoreMultiLayerNetwork(locationToSave);
+
+        //Use loaded model
+        INDArray loadedOutput = model.output(convert);
+        System.out.println("Prediction INDArray from loaded model: "+loadedOutput);
 
         System.out.println("Make NeuroGen:GA");
         //GeneticAlgorithm genAlg = new GeneticAlgorithm(50, 15, 0.7, 0.2, 100, idList, semanticFilePAth);
