@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="58990d26-fa40-4700-9ac3-8a035a746508" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/semantic.xml" afterPath="$PROJECT_DIR$/semantic.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,41 +16,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1547">
-              <caret line="140" column="47" lean-forward="false" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
+            <state relative-caret-position="714">
+              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NeuralNetwork.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="semantic.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/semantic.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2193">
-              <caret line="129" column="28" lean-forward="false" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sample.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+            <state relative-caret-position="595">
+              <caret line="107" column="3" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="107" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -86,8 +76,9 @@
         <option value="$PROJECT_DIR$/dataset.csv" />
         <option value="$PROJECT_DIR$/samples.csv" />
         <option value="$PROJECT_DIR$/sample.csv" />
-        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" />
         <option value="$PROJECT_DIR$/semantic.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java" />
       </list>
     </option>
   </component>
@@ -131,6 +122,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -165,11 +157,28 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="NeuroGen" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="GeneticAlgorithm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MGR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="NeuroGen" type="462c0819:PsiDirectoryNode" />
+              <item name="GA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GeneticAlgorithm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MGR" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="NeuroGen" type="462c0819:PsiDirectoryNode" />
+              <item name="NN" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -323,7 +332,8 @@
       <workItem from="1525687314063" duration="6374000" />
       <workItem from="1525760174326" duration="7007000" />
       <workItem from="1525771015080" duration="1636000" />
-      <workItem from="1526455549394" duration="963000" />
+      <workItem from="1526455549394" duration="1645000" />
+      <workItem from="1526458331086" duration="7070000" />
     </task>
     <task id="LOCAL-00001" summary="Clean Up">
       <created>1524160001474</created>
@@ -388,14 +398,22 @@
       <option name="project" value="LOCAL" />
       <updated>1525772103803</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update semantic.xml">
+      <created>1526456531561</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1526456531561</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40206000" />
+    <option name="totallyTimeSpent" value="47958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -410,7 +428,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26599148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26865673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -442,7 +460,8 @@
     <MESSAGE value="Network done, TO DO: Make sense prediction(vector one)" />
     <MESSAGE value="Add correct prediction" />
     <MESSAGE value="Add Save and Load model and use loaded model, To Do: Refactor whole thing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Save and Load model and use loaded model, To Do: Refactor whole thing." />
+    <MESSAGE value="Update semantic.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update semantic.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -451,6 +470,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/semantic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="129" column="28" lean-forward="false" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -471,7 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -495,7 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -549,7 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="86" column="43" lean-forward="false" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -581,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="84" column="28" lean-forward="false" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -627,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="82" column="13" lean-forward="true" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
           <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,7 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -712,7 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="86" column="43" lean-forward="false" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="74" column="19" lean-forward="true" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -734,24 +784,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/semantic.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
+        <state relative-caret-position="615">
           <caret line="129" column="28" lean-forward="false" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="140" column="47" lean-forward="false" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
+        <state relative-caret-position="595">
+          <caret line="107" column="3" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="107" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>
