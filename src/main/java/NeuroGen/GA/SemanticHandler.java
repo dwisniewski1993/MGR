@@ -55,7 +55,7 @@ public class SemanticHandler {
         int len = 0;
         NodeList unitList = doc.getElementsByTagName("UNIT");
         len = unitList.getLength();
-        return len;
+        return this.unitLenght;
     }
 
     public int getUnitLenght(){
@@ -75,17 +75,18 @@ public class SemanticHandler {
     public int getDistanceToElemnt(int elementID, int searchDistElemId){
         NodeList unitList = doc.getElementsByTagName("UNIT");
         Node nUnit = unitList.item(elementID);
-        System.out.println("Node type: "+nUnit.getNodeType()+", ElementNode" + Node.ELEMENT_NODE);
-        System.out.println("Elem ID: "+ elementID+", Search ID: "+searchDistElemId);
         if (nUnit.getNodeType()==Node.ELEMENT_NODE){
             Element eElement = (Element) nUnit;
             Element distEl = (Element) eElement.getElementsByTagName("DISTANCE").item(0);
             int len = getUnitLenght();
             int flag = 0;
-            for (int j=0; j<len; j++){
+            System.out.println("Distance: "+distEl.getElementsByTagName("FROM").item(searchDistElemId).getTextContent());
+            for (int j=1; j<len-1; j++){
                 Element id = (Element) distEl.getElementsByTagName("FROM").item(j);
-                if (searchDistElemId == Integer.parseInt(id.getAttribute("id"))){
+                int numid = Integer.parseInt(id.getAttribute("id"));
+                if (searchDistElemId == numid){
                     flag = j;
+                    break;
                 }
             }
             return Integer.parseInt(distEl.getElementsByTagName("FROM").item(flag).getTextContent());

@@ -1,5 +1,7 @@
 package NeuroGen;
 
+import NeuroGen.GA.GeneticAlgorithm;
+import NeuroGen.GA.HandleSemantic;
 import NeuroGen.GA.SemanticHandler;
 import NeuroGen.NN.NeuralNetwork;
 import org.datavec.api.records.reader.RecordReader;
@@ -27,7 +29,9 @@ import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.dataset.api.iterator.MultiDataSetIterator;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,7 +46,7 @@ import java.util.Set;
 public class App 
 {
 
-    public static void main(String[] args ) throws IOException, InterruptedException {
+    public static void main(String[] args ) throws IOException, InterruptedException, ParserConfigurationException, SAXException {
         //NeuralNet Data
         String courseName = "tabliczka mnozenia";
         int numEpochs = 100;
@@ -53,18 +57,33 @@ public class App
         String samplePath = "sample.csv";
         //Genetic Alg Data
         String semanticFilePAth = "semantic.xml";
-        SemanticHandler ontologyT = new SemanticHandler(semanticFilePAth);//Temporary line
-        Set<Integer> idList = ontologyT.getIDArrays();
+        //SemanticHandler ontologyT = new SemanticHandler(semanticFilePAth);//Temporary line
+        //Set<Integer> idList = ontologyT.getIDArrays();
+
+        HandleSemantic ont = new HandleSemantic(semanticFilePAth);
+        Set<Integer> idList = ont.getIDArrays();
+        System.out.println(ont.getLearningPathLenght());
+        for (int i=1; i<=ont.getLearningPathLenght(); i++){
+            System.out.println("Element "+i+" DIF LVL: "+ont.getUnitDifficultyLevel(i));
+        }
+        for (int q=1; q<=ont.getLearningPathLenght();q++){
+            for (int w=1; w<=ont.getLearningPathLenght();w++){
+                if (q!=w){
+                    System.out.println("Q: "+q+", W: "+w);
+                    System.out.println(ont.getDistanceToElement(q, w));
+                }
+            }
+        }
 
         //NeuralNet
-        System.out.println("Make NeuroGen: NN");
-        NeuralNetwork nn = new NeuralNetwork(courseName, numEpochs, nIn, nOut, nHiddenNodes, dataset);
+        //System.out.println("Make NeuroGen: NN");
+        //NeuralNetwork nn = new NeuralNetwork(courseName, numEpochs, nIn, nOut, nHiddenNodes, dataset);
 
-        System.out.println("TOOK PREDICTION...."+nn.getPrediction(samplePath));
+        //System.out.println("TOOK PREDICTION...."+nn.getPrediction(samplePath));
 
-/*
-        for (int i=0; i<10; i++){
-            for (int y=0;y<10;y++){
+        /*
+        for (int i=1; i<=10; i++){
+            for (int y=1;y<=10;y++){
                 if (i!=y){
                     System.out.println("I: "+i+", Y: "+y);
                     System.out.println(ontologyT.getDistanceToElemnt(i, y));
