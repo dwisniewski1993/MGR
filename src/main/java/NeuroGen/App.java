@@ -3,13 +3,10 @@ package NeuroGen;
 import NeuroGen.GA.GeneticAlgorithm;
 import NeuroGen.GA.HandleSemantic;
 import NeuroGen.NN.NeuralNetwork;
-import org.nd4j.linalg.api.ndarray.INDArray;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -37,7 +34,7 @@ public class App
         //NeuralNet
         System.out.println("Make NeuroGen: NN");
         NeuralNetwork nn = new NeuralNetwork(courseName, numEpochs, nIn, nOut, nHiddenNodes, dataset);
-        Set prediction = nn.getPrediction(samplePath);
+        Set<Integer> prediction = nn.getPrediction(samplePath);
         System.out.println("PREDICTION...."+prediction);
 
         System.out.println("Make NeuroGen:GA");
