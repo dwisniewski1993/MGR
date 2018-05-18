@@ -23,7 +23,10 @@ import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * MGR project Neural Network part of NeuroGen Engine
@@ -115,7 +118,7 @@ public class NeuralNetwork {
         }
     }
 
-    public void trainModel(){
+    private void trainModel(){
         this.model = new MultiLayerNetwork(this.conf);
         this.model.init();
         this.model.setListeners(new ScoreIterationListener(10));
@@ -125,104 +128,31 @@ public class NeuralNetwork {
         }
     }
 
-    public void saveModel() throws IOException {
+    private void saveModel() throws IOException {
         ModelSerializer.writeModel(this.model, this.locationToSaveModel, this.saveUpdater);
     }
 
-    public void loadModel() throws IOException {
+    private void loadModel() throws IOException {
         this.model = ModelSerializer.restoreMultiLayerNetwork(this.locationToSaveModel);
     }
 
-    public INDArray getPrediction(String sample) throws IOException, InterruptedException {
+    public Set<Integer> getPrediction(String sample) throws IOException, InterruptedException {
         this.sampleReader = new CSVRecordReader(this.numLinesToSkip, this.filedeimeter);
         sampleReader.initialize(new FileSplit(new File(sample)));
+
+        ArrayList<Integer> idsList = new ArrayList<>();
 
         this.record = sampleReader.next();
         this.convert = RecordConverter.toArray(this.record);
         this.output = this.model.output(convert);
 
-        return output;
+        for (int i=0;i<this.output.length();i++){
+            if (this.output.getDouble(i)>0.5){
+                idsList.add(i+1);
+            }
+        }
+        Set<Integer> prediction = new HashSet<Integer>(idsList);
+
+        return prediction;
     }
 }
-
-/*
-//SillyNet
-        int seed = 123;
-        double learning_rate = 0.01;
-        int batchSize = 50;
-        int nEpochs = 100;
-        int numInputs = 2;
-        int numOutputs = 2;
-        int numHiddenNodes = 20;
-        int numLinesToSkip = 0;
-        String fileDelimeter = ",";
-        String csvPath = "dataset.csv";
-
-
-        //Record Reader for training dataset
-        RecordReader rr = new CSVRecordReader(numLinesToSkip, fileDelimeter);
-        rr.initialize(new FileSplit(new File(csvPath)));
-
-        MultiDataSetIterator iterator = new RecordReaderMultiDataSetIterator.Builder(batchSize)
-                .addReader("myReader", rr)
-                .addInput("myReader", 0, 9)
-                .addOutput("myReader", 10, 19)
-                .build();
-
-        //Neural Network Architecture
-        MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
-                .seed(seed)
-                .iterations(1)
-                .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
-                .learningRate(learning_rate)
-                .updater(Updater.ADAM)
-                .momentum(0.9)
-                .list()
-                .layer(0, new DenseLayer.Builder()
-                    .nIn(10)
-                    .nOut(numHiddenNodes)
-                    .weightInit(WeightInit.XAVIER)
-                    .activation(Activation.SIGMOID)
-                    .build())
-                .layer(1, new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
-                    .weightInit(WeightInit.XAVIER)
-                        .activation(Activation.SIGMOID)
-                        .weightInit(WeightInit.XAVIER)
-                        .nIn(numHiddenNodes)
-                        .nOut(10)
-                        .build()
-                ).pretrain(false).backprop(true).build();
-
-        //Training Model
-        MultiLayerNetwork model = new MultiLayerNetwork(conf);
-        model.init();
-        model.setListeners(new ScoreIterationListener(10));
-
-        for (int i = 0; i< nEpochs; i++){
-            model.fit(iterator);
-        }
-
-
-        //Take data and predict score
-        RecordReader sampleReader = new CSVRecordReader(numLinesToSkip, fileDelimeter);
-        sampleReader.initialize(new FileSplit(new File("sample.csv")));
-
-        List<Writable> record = sampleReader.next();
-        System.out.println("Record list: "+record);
-        INDArray convert = RecordConverter.toArray(record);
-        System.out.println("Convert Array: "+convert);
-        INDArray output = model.output(convert);
-        System.out.println("Predicted INDArray: "+output);
-
-        //Save Trained Model
-        File locationToSave = new File("trained_model.zip");
-        boolean saveUpdater = false;
-        ModelSerializer.writeModel(model, locationToSave, saveUpdater);
-
-        //Load model
-        MultiLayerNetwork loadedModel = ModelSerializer.restoreMultiLayerNetwork(locationToSave);
-
-        //Use loaded model
-        INDArray loadedOutput = loadedModel.output(convert);
-        System.out.println("Prediction INDArray from loaded model: "+loadedOutput);
- */

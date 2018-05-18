@@ -6,8 +6,10 @@ import org.jenetics.engine.EvolutionStatistics;
 import static org.jenetics.engine.EvolutionResult.toBestPhenotype;
 import org.jenetics.util.Factory;
 import org.jenetics.util.ISeq;
+import org.xml.sax.SAXException;
 
-import java.util.Random;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -27,12 +29,12 @@ public class GeneticAlgorithm {
     private Engine<EnumGene<Integer>, Integer> engine;
     private EvolutionStatistics<Integer, ?> stats;
     private Phenotype<EnumGene<Integer>, Integer> best;
-    private static SemanticHandler ontology;
+    private static HandleSemantic ontology;
     private static String pathfile;
 
-    public GeneticAlgorithm(int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList, String filename){
+    public GeneticAlgorithm(int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList, String filename) throws IOException, SAXException, ParserConfigurationException {
         pathfile = filename;
-        ontology = new SemanticHandler(filename);
+        ontology = new HandleSemantic(filename);
         populationSize = popSize;
         maxPhenotypeAge = maxPhenAge;
         crossoverProp = crossProp;
@@ -69,9 +71,9 @@ public class GeneticAlgorithm {
         double fitness = 0;
         double wage = 0.6;
 
-        for (int i = 0; i < gt.getChromosome().length(); i++){
-            fitness = fitness + ((wage*ontology.getDistanceToElemnt(i+1, i))
-                    + ((1-wage)*ontology.getUnitDifLvl(i+1)));
+        for (int i = 1; i <= gt.getChromosome().length(); i++){
+            fitness = fitness + ((wage*ontology.getDistanceToElement(i, i-1))
+                    + ((1-wage)*ontology.getUnitDifficultyLevel(i)));
         }
 
         fitInt = (int)fitness;
@@ -79,30 +81,3 @@ public class GeneticAlgorithm {
     }
 
 }
-
-/*
-//NeuroGen.GA Init
-        ISeq<Integer> allele = ISeq.of(idList);
-        Factory<Genotype<EnumGene<Integer>>> gtf = Genotype.of(PermutationChromosome.of(allele));
-
-        //Genetic Algorithm
-        final Engine<EnumGene<Integer>, Integer> engine = Engine.builder(App::FF, gtf)
-                .populationSize(5) //Population Size
-                .maximalPhenotypeAge(10) // Phenotyope Age
-                .survivorsSelector(new RouletteWheelSelector<>()) //Survive Selector
-                .offspringSelector(new TournamentSelector<>()) // Offspring selector
-                .alterers(new PartiallyMatchedCrossover<>(0.6), new SwapMutator<>(0.2)) //Crossover & mutation rate
-                .build();
-
-        //Evolution statistics consumer
-        final EvolutionStatistics<Integer, ?> stats = EvolutionStatistics.ofNumber();
-
-        final Phenotype<EnumGene<Integer>, Integer> best = engine
-                .stream()
-                .limit(20)
-                .peek(stats)
-                .collect(toBestPhenotype());
-
-        System.out.println(stats); // NeuroGen.GA stats
-        System.out.println(best); // Best Phenotype
- */

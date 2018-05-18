@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * MGR project Semantic Handler for Genetic Algorithm
+ * MADE BY Dominik Wiśniewski
+ */
+
 public class HandleSemantic {
     private String pathfile;
     private File inputFile;
