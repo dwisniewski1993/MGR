@@ -67,17 +67,27 @@ public class GeneticAlgorithm {
     public static int FF(final Genotype<EnumGene<Integer>> gt){
         //Fitness=suma(waga * odległość od(i do i-1) + (1-waga) * poziom trudności
 
-        int fitInt;
-        double fitness = 0;
-        double wage = 0.6;
+        int fitness = 0;
+        double wage = 0.8;
+        String [] chromosome = new String [gt.getChromosome().length()];
 
-        for (int i = 1; i <= gt.getChromosome().length(); i++){
-            fitness = fitness + ((wage*ontology.getDistanceToElement(i, i-1))
-                    + ((1-wage)*ontology.getUnitDifficultyLevel(i)));
+        for (int i = 0; i < gt.getChromosome().length(); i++){
+            chromosome [i] = gt.getChromosome().getGene(i).toString();
         }
 
-        fitInt = (int)fitness;
-        return fitInt;
+        return getFitness(chromosome);
+    }
+
+    private static int getFitness(String [] chromosome){
+        double fitness = 0;
+        double wage = 0.8;
+
+        for (int i=1; i < chromosome.length;i++){
+            fitness = fitness + ((wage*ontology.getDistanceToElement(Integer.parseInt(chromosome[i]), Integer.parseInt(chromosome[i-1])))
+                            +((1-wage)*ontology.getUnitDifficultyLevel(Integer.parseInt(chromosome[i]))));
+        }
+
+        return (int) fitness;
     }
 
 }

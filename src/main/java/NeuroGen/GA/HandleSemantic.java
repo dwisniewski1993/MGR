@@ -1,5 +1,6 @@
 package NeuroGen.GA;
 
+import org.jenetics.EnumGene;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -59,7 +60,8 @@ public class HandleSemantic {
             int flag = 0;
             for (int i=1; i<=this.getLearningPathLenght()-1;i++){
                 Element id = (Element) distEl.getElementsByTagName("FROM").item(i-1);
-                //System.out.println("ID Atribute: "+id.getAttribute("id"));
+                System.out.println("ID Atribute: "+id.getAttribute("id"));
+                System.out.println("Search ID: "+searchElementID);
                 if (searchElementID==Integer.parseInt(id.getAttribute("id"))){
                     flag = i-1;
                 }
