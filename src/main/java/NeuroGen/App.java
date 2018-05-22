@@ -1,7 +1,6 @@
 package NeuroGen;
 
 import NeuroGen.GA.GeneticAlgorithm;
-import NeuroGen.GA.HandleSemantic;
 import NeuroGen.NN.NeuralNetwork;
 import org.xml.sax.SAXException;
 
@@ -25,11 +24,14 @@ public class App
         int nOut = 10;
         int nHiddenNodes = 100;
         String dataset = "dataset.csv";
-        String samplePath = "sample.csv";
+        String samplePath = "samples.csv";
 
-        //Genetic Alg Data
-        String semanticFilePAth = "semantic.xml";
-        HandleSemantic ont = new HandleSemantic(semanticFilePAth);
+        //GA Data
+        int populationSize = 50;
+        int maxPhenotypeAge = 20;
+        double crossoverPropability = 0.6;
+        double mutationPropability = 0.2;
+        int numberOfGenerations = 100;
 
         //NeuralNet
         System.out.println("Make NeuroGen: NN");
@@ -39,7 +41,7 @@ public class App
 
         //GA
         System.out.println("Make NeuroGen:GA");
-        GeneticAlgorithm genAlg = new GeneticAlgorithm(50, 20, 0.7, 0.2, 100, prediction, semanticFilePAth);
+        GeneticAlgorithm genAlg = new GeneticAlgorithm(courseName, populationSize, maxPhenotypeAge, crossoverPropability, mutationPropability, numberOfGenerations, prediction);
         System.out.println(genAlg.getStats());
         System.out.println(genAlg.getBest());
     }

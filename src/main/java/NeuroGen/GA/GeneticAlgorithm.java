@@ -30,41 +30,39 @@ public class GeneticAlgorithm {
     private EvolutionStatistics<Integer, ?> stats;
     private Phenotype<EnumGene<Integer>, Integer> best;
     private static HandleSemantic ontology;
-    private static String pathfile;
 
-    public GeneticAlgorithm(int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList, String filename) throws IOException, SAXException, ParserConfigurationException {
-        pathfile = filename;
-        ontology = new HandleSemantic(filename);
-        populationSize = popSize;
-        maxPhenotypeAge = maxPhenAge;
-        crossoverProp = crossProp;
-        mutationProp = mutProp;
-        numberOfGenerations = numOfGen;
+    public GeneticAlgorithm(String coursename, int popSize, int maxPhenAge, double crossProp, double mutProp, int numOfGen, Set<Integer> idList) throws IOException, SAXException, ParserConfigurationException {
+        this.ontology = new HandleSemantic(coursename+" semantic.xml");
+        this.populationSize = popSize;
+        this.maxPhenotypeAge = maxPhenAge;
+        this.crossoverProp = crossProp;
+        this.mutationProp = mutProp;
+        this.numberOfGenerations = numOfGen;
         this.idList = idList;
-        allele = ISeq.of(idList);
-        gtf = Genotype.of(PermutationChromosome.of(allele));
-        engine = Engine.builder(GeneticAlgorithm::FF, gtf)
-                .populationSize(populationSize)
-                .maximalPhenotypeAge(maxPhenotypeAge)
+        this.allele = ISeq.of(this.idList);
+        this.gtf = Genotype.of(PermutationChromosome.of(this.allele));
+        this.engine = Engine.builder(GeneticAlgorithm::FF, this.gtf)
+                .populationSize(this.populationSize)
+                .maximalPhenotypeAge(this.maxPhenotypeAge)
                 .survivorsSelector(new RouletteWheelSelector<>())
                 .offspringSelector(new TournamentSelector<>())
-                .alterers(new PartiallyMatchedCrossover<>(crossoverProp), new SwapMutator<>(mutationProp))
+                .alterers(new PartiallyMatchedCrossover<>(this.crossoverProp), new SwapMutator<>(this.mutationProp))
                 .build();
-        stats = EvolutionStatistics.ofNumber();
-        best = engine.stream().limit(numberOfGenerations).peek(stats).collect(toBestPhenotype());
+        this.stats = EvolutionStatistics.ofNumber();
+        this.best = this.engine.stream().limit(this.numberOfGenerations).peek(this.stats).collect(toBestPhenotype());
 
     }
 
     public Phenotype<EnumGene<Integer>, Integer> getBest(){
-        return best;
+        return this.best;
     }
 
     public EvolutionStatistics<Integer, ?> getStats() {
-        return stats;
+        return this.stats;
     }
 
     //Fitness Function
-    public static int FF(final Genotype<EnumGene<Integer>> gt){
+    private static int FF(final Genotype<EnumGene<Integer>> gt){
         //Fitness=suma(waga * odległość od(i do i-1) + (1-waga) * poziom trudności
 
         int fitness = 0;
