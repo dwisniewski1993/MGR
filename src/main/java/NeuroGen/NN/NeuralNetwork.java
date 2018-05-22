@@ -19,6 +19,7 @@ import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.iterator.MultiDataSetIterator;
+import org.nd4j.linalg.dataset.api.preprocessor.MultiNormalizerMinMaxScaler;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.io.File;
@@ -47,6 +48,7 @@ public class NeuralNetwork {
     private String csvPath;
     private RecordReader rr;
     private MultiDataSetIterator iterator;
+    private MultiNormalizerMinMaxScaler normalizer;
     private MultiLayerConfiguration conf;
     private MultiLayerNetwork model;
     private RecordReader sampleReader;
@@ -105,6 +107,11 @@ public class NeuralNetwork {
                     .build())
                 .pretrain(false).backprop(true).build();
 
+        //Normalize Data
+        this.normalizer = new MultiNormalizerMinMaxScaler();
+        this.normalizer.fit(this.iterator);
+        this.iterator.setPreProcessor(this.normalizer);
+
         //Initialize Model
         if (this.locationToSaveModel.exists()){
             System.out.println("Loading Model...");
@@ -113,7 +120,7 @@ public class NeuralNetwork {
         else {
             System.out.println("Train Model...");
             trainModel();
-            System.out.println("Save Moel...");
+            System.out.println("Save Model...");
             saveModel();
         }
     }
