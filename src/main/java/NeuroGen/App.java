@@ -44,6 +44,7 @@ public class App
         GeneticAlgorithm genAlg = new GeneticAlgorithm(courseName, populationSize, maxPhenotypeAge, crossoverPropability, mutationPropability, numberOfGenerations, prediction);
         System.out.println(genAlg.getStats());
         System.out.println(genAlg.getBest());
+        System.out.println(genAlg.getBestList());
     }
 }
 

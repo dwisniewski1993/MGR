@@ -10,6 +10,8 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -59,6 +61,17 @@ public class GeneticAlgorithm {
 
     public EvolutionStatistics<Integer, ?> getStats() {
         return this.stats;
+    }
+
+    public List getBestList(){
+        int size = this.best.getGenotype().getChromosome().length();
+        List chromosome = new ArrayList(size);
+
+        for (int i=0; i<size; i++){
+            chromosome.add(this.best.getGenotype().getChromosome().getGene(i));
+        }
+
+        return chromosome;
     }
 
     //Fitness Function

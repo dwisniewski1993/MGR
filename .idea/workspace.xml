@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="58990d26-fa40-4700-9ac3-8a035a746508" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabliczka mnozenia.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trained_model.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/HandleSemantic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NeuroGen/GA/HandleSemantic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NeuroGen/GA/HandleSemantic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NeuroGen/GA/HandleSemantic.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+            <state relative-caret-position="765">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,32 +36,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HandleSemantic.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/HandleSemantic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NeuralNetwork.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NeuralNetwork.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
+            <state relative-caret-position="1446">
+              <caret line="160" column="64" selection-start-line="160" selection-start-column="64" selection-end-line="160" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            <state relative-caret-position="1007">
+              <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,10 +85,10 @@
         <option value="$PROJECT_DIR$/sample.csv" />
         <option value="$PROJECT_DIR$/semantic.xml" />
         <option value="$PROJECT_DIR$/src/main/java/NeuroGen/GA/SemanticHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/GA/HandleSemantic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/GA/HandleSemantic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java" />
       </list>
     </option>
   </component>
@@ -133,6 +125,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,7 +181,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -303,7 +295,8 @@
       <workItem from="1526633011118" duration="5534000" />
       <workItem from="1526640262019" duration="3934000" />
       <workItem from="1526886003902" duration="9331000" />
-      <workItem from="1526969988329" duration="4620000" />
+      <workItem from="1526969988329" duration="4759000" />
+      <workItem from="1527236330450" duration="4522000" />
     </task>
     <task id="LOCAL-00001" summary="Clean Up">
       <created>1524160001474</created>
@@ -407,7 +400,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76517000" />
+    <option name="totallyTimeSpent" value="81178000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -469,8 +462,32 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="15" />
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((DeferredTextImpl)((DeferredTextImpl)((DeferredElementImpl)nUnit).firstChild).previousSibling).fNodeIndex" custom="com.sun.org.apache.xerces.internal.dom.DeferredElementImpl,com.sun.org.apache.xerces.internal.dom.DeferredTextImpl" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>id.getAttribute(&quot;id&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Integer.parseInt(id.getAttribute(&quot;id&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Integer.parseIn</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java">
@@ -701,16 +718,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/SemanticHandler.java" />
-    <entry file="file://$PROJECT_DIR$/semantic.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tabliczka mnozenia semantic.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/samples.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
@@ -718,20 +725,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
+    <entry file="file://$PROJECT_DIR$/semantic.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="96" column="28" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="28" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tabliczka mnozenia semantic.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/HandleSemantic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="1020">
+          <caret line="60" column="85" selection-start-line="60" selection-start-column="85" selection-end-line="60" selection-end-column="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -740,8 +747,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+        <state relative-caret-position="765">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -750,8 +757,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/NN/NeuralNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
+        <state relative-caret-position="1446">
+          <caret line="160" column="64" selection-start-line="160" selection-start-column="64" selection-end-line="160" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NeuroGen/GA/GeneticAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

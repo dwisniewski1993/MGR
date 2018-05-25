@@ -59,16 +59,13 @@ public class HandleSemantic {
             int flag = 0;
             for (int i=1; i<=this.getLearningPathLenght()-1;i++){
                 Element id = (Element) distEl.getElementsByTagName("FROM").item(i-1);
-                //System.out.println("ID Atribute: "+id.getAttribute("id"));
-                //System.out.println("Search ID: "+searchElementID);
-                try{if (searchElementID==Integer.parseInt(id.getAttribute("id"))){
-                    flag = i-1;
-                }}
-                catch (NumberFormatException e){
-                    System.out.println("Atribute Exeption");
+                try{
+                    if (searchElementID==Integer.parseInt(id.getAttribute("id"))){
+                        flag = i-1;
+                    }
                 }
-                if (searchElementID==Integer.parseInt(id.getAttribute("id"))){
-                    flag = i-1;
+                catch (NumberFormatException e){
+                    System.out.println(e);
                 }
             }
             return Integer.parseInt(distEl.getElementsByTagName("FROM").item(flag).getTextContent());
