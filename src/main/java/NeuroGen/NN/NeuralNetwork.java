@@ -45,37 +45,44 @@ public class NeuralNetwork {
     private int numHiddenNodes;
     private int numLinesToSkip = 0;
     private String filedeimeter = ",";
-    private String csvPath;
-    private RecordReader rr;
+    private String featuresCSV;
+    private String labelsCSV;
     private MultiDataSetIterator iterator;
     private MultiNormalizerMinMaxScaler normalizer;
     private MultiLayerConfiguration conf;
     private MultiLayerNetwork model;
     private RecordReader sampleReader;
+    private RecordReader featuresReader;
+    private RecordReader labelsReader;
     private List<Writable> record;
     private INDArray convert;
     private INDArray output;
     private File locationToSaveModel;
     private boolean saveUpdater = false;
 
-    public NeuralNetwork(String courseName, int nEpochs, int numInputs, int numOutputs, int numHiddenNodes, String datasetPath) throws IOException, InterruptedException {
+    public NeuralNetwork(String courseName, int nEpochs, int numInputs, int numOutputs, int numHiddenNodes, String features, String labels) throws IOException, InterruptedException {
         this.courseName = courseName;
         this.locationToSaveModel = new File(courseName+".zip");
         this.nEpochs = nEpochs;
         this.numInputs = numInputs;
         this.numOutputs = numOutputs;
         this.numHiddenNodes = numHiddenNodes;
-        this.csvPath = datasetPath;
 
-        //Initialize Record Reader
-        this.rr = new CSVRecordReader(numLinesToSkip, filedeimeter);
-        this.rr.initialize(new FileSplit(new File(this.csvPath)));
+        this.featuresCSV = features;
+        this.labelsCSV = labels;
+
+        this.featuresReader = new CSVRecordReader(numLinesToSkip, filedeimeter);
+        this.featuresReader.initialize(new FileSplit(new File(this.featuresCSV)));
+
+        this.labelsReader = new CSVRecordReader(numLinesToSkip, filedeimeter);
+        this.labelsReader.initialize(new FileSplit(new File(this.labelsCSV)));
 
         //Initialize iterator
         this.iterator = new RecordReaderMultiDataSetIterator.Builder(this.batch_size)
-                .addReader("NeuroGenReader", rr)
-                .addInput("NeuroGenReader", 0, this.numInputs-1)
-                .addOutput("NeuroGenReader", this.numInputs, this.numInputs+this.numOutputs-1)
+                .addReader("csvInput", this.featuresReader)
+                .addReader("csvOutput", this.labelsReader)
+                .addInput("csvInput")
+                .addOutput("csvOutput")
                 .build();
 
         //Initialize Neural Network Confifuration
@@ -91,15 +98,9 @@ public class NeuralNetwork {
                     .nIn(this.numInputs)
                     .nOut(this.numHiddenNodes)
                     .weightInit(WeightInit.XAVIER)
-                    .activation(Activation.SIGMOID)
+                    .activation(Activation.TANH)
                     .build())
-                .layer(1, new DenseLayer.Builder()
-                    .nIn(this.numHiddenNodes)
-                    .nOut(this.numHiddenNodes)
-                    .weightInit(WeightInit.XAVIER)
-                    .activation(Activation.SIGMOID)
-                    .build())
-                .layer(2, new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
+                .layer(1, new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
                     .weightInit(WeightInit.XAVIER)
                         .activation(Activation.SIGMOID)
                         .nIn(this.numHiddenNodes)

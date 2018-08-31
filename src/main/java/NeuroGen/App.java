@@ -22,8 +22,9 @@ public class App
         int numEpochs = 100;
         int nIn = 10;
         int nOut = 10;
-        int nHiddenNodes = 100;
-        String dataset = "dataset.csv";
+        int nHiddenNodes = 256;
+        String features = "features.csv";
+        String labels = "labels.csv";
         String samplePath = "samples.csv";
 
         //GA Data
@@ -35,7 +36,7 @@ public class App
 
         //NeuralNet
         System.out.println("Make NeuroGen: NN");
-        NeuralNetwork nn = new NeuralNetwork(courseName, numEpochs, nIn, nOut, nHiddenNodes, dataset);
+        NeuralNetwork nn = new NeuralNetwork(courseName, numEpochs, nIn, nOut, nHiddenNodes, features, labels);
         Set<Integer> prediction = nn.getPrediction(samplePath);
         System.out.println("PREDICTION...."+prediction);
 

@@ -65,7 +65,7 @@ public class HandleSemantic {
                     }
                 }
                 catch (NumberFormatException e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
             }
             return Integer.parseInt(distEl.getElementsByTagName("FROM").item(flag).getTextContent());
