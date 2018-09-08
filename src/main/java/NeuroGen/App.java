@@ -25,14 +25,14 @@ public class App
         int nHiddenNodes = 256;
         String features = "features.csv";
         String labels = "labels.csv";
-        String samplePath = "samples.csv";
+        String samplePath = "sample.csv";
 
         //GA Data
-        int populationSize = 50;
-        int maxPhenotypeAge = 20;
-        double crossoverPropability = 0.6;
-        double mutationPropability = 0.2;
-        int numberOfGenerations = 100;
+        int populationSize = 25;
+        int maxPhenotypeAge = 10;
+        double crossoverPropability = 0.9;
+        double mutationPropability = 0.001;
+        int numberOfGenerations = 50;
 
         //NeuralNet
         System.out.println("Make NeuroGen: NN");
